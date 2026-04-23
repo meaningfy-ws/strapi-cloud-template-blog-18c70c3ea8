@@ -24,7 +24,7 @@ This repository is one half of the platform. The frontend lives at [meaningfy-ws
 | [Next.js](https://nextjs.org) | Frontend framework (see hulubul-front repo) |
 | [Zitadel](https://zitadel.com) | SSO / identity provider — OAuth2/OIDC for user auth |
 | [Photon by Komoot](https://photon.komoot.io) | Geocoding — city name → coordinates (OpenStreetMap data, no rate limit) |
-| [Leaflet](https://leafletjs.com) + OpenStreetMap | Interactive route maps on the frontend |
+| Leaflet / MapLibre *(TBD)* + OpenStreetMap | Interactive route maps on the frontend |
 | SQLite (dev) / PostgreSQL (cloud) | Database |
 
 ---
