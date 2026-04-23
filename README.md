@@ -1,61 +1,85 @@
-# 🚀 Getting started with Strapi
+# hulubul.com — Backend (Strapi CMS)
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Content management and REST API backend for **hulubul.com**, a diaspora package transport platform connecting senders and transporters between Moldova and Western Europe.
 
-### `develop`
-
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
-
-```
-npm run develop
-# or
-yarn develop
-```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+This repository is one half of the platform. The frontend lives at [meaningfy-ws/hulubul-front](https://github.com/meaningfy-ws/hulubul-front).
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+## Live deployments
+
+| Service | URL | Tier |
+|---|---|---|
+| Strapi admin | [Strapi Cloud](https://cloud.strapi.io) (free tier) | Free |
+| Frontend | Vercel (free tier) | Free |
+| Auth (SSO) | Zitadel Cloud (free tier) | Free |
+
+---
+
+## Tech stack
+
+| Technology | Role |
+|---|---|
+| [Strapi v5](https://strapi.io) | Headless CMS — content types, REST API, admin panel |
+| [Next.js](https://nextjs.org) | Frontend framework (see hulubul-front repo) |
+| [Zitadel](https://zitadel.com) | SSO / identity provider — OAuth2/OIDC for user auth |
+| [Photon by Komoot](https://photon.komoot.io) | Geocoding — city name → coordinates (OpenStreetMap data, no rate limit) |
+| [Leaflet](https://leafletjs.com) + OpenStreetMap | Interactive route maps on the frontend |
+| SQLite (dev) / PostgreSQL (cloud) | Database |
+
+---
+
+## Repositories
+
+| Repo | Description |
+|---|---|
+| `meaningfy-ws/strapi-cloud-template-blog-18c70c3ea8` | **This repo** — Strapi backend, content types, lifecycles |
+| [meaningfy-ws/hulubul-front](https://github.com/meaningfy-ws/hulubul-front) | Next.js frontend — landing page, forms, route maps |
+
+---
+
+## Content model
+
+```
+transport-type  ←──(M:M)──  transporter  ──(1:M)──  route-schedule  ──(M:1)──  route
+```
+
+| Collection | Purpose |
+|---|---|
+| `waitlist-submission` | Landing page sign-ups (name, email, whatsapp, role, routes) |
+| `survey-sender` | Research survey — habitual senders' experience and pain points |
+| `survey-transporter` | Research survey — active transporters' operations and pain points |
+| `transport-type` | Admin-managed lookup — categories of goods/services |
+| `route` | Named city corridors with auto-geocoded GeoJSON paths |
+| `transporter` | Operator profiles (individual or company) |
+| `route-schedule` | Junction: who travels which route, how often, which days |
+| `landing-page` | Single type — all content for the hulubul.com landing page |
+
+---
+
+## Local development
+
+```bash
+npm install
+npm run develop
+```
+
+Copy `.env.example` to `.env` and fill in secrets before starting. Key variables:
+
+```
+GEO_SERVICE_URL=https://photon.komoot.io   # Geocoding endpoint (default: Photon)
+GEO_SERVICE_TOKEN=                          # Optional bearer token for private geocoding instance
+```
+
+The admin panel runs at `http://localhost:1337/admin`.
+
+---
+
+## Design specs
+
+Detailed data model specifications live in [`design/`](./design/):
+
+- [`spec-waitlist-submission.md`](./design/spec-waitlist-submission.md)
+- [`spec-survey-senders.md`](./design/spec-survey-senders.md)
+- [`spec-survey-transporters.md`](./design/spec-survey-transporters.md)
+- [`spec-transporters-routes.md`](./design/spec-transporters-routes.md)
