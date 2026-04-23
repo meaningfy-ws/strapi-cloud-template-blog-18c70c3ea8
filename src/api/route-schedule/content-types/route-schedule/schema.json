@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "route_schedules",
+  "info": {
+    "singularName": "route-schedule",
+    "pluralName": "route-schedules",
+    "displayName": "Route Schedule",
+    "description": "Junction linking a transporter to a route with frequency and day-of-week timing"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "transporter": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::transporter.transporter",
+      "inversedBy": "schedules"
+    },
+    "route": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::route.route",
+      "inversedBy": "schedules"
+    },
+    "frequency": {
+      "type": "enumeration",
+      "enum": ["weekly", "biweekly", "monthly", "on_demand"],
+      "required": true
+    },
+    "departureDays": {
+      "type": "json",
+      "required": true
+    },
+    "arrivalDays": {
+      "type": "json",
+      "required": true
+    },
+    "notes": {
+      "type": "text",
+      "required": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "approved", "suspended"],
+      "required": true,
+      "default": "approved"
+    }
+  }
+}
