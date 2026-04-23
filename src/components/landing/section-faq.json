@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_landing_section_faqs",
+  "info": {
+    "displayName": "Section — FAQ",
+    "icon": "question-circle",
+    "description": "FAQ section — label, split-title (with optional trail), repeatable items"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "titleLead": {
+      "type": "string",
+      "required": true
+    },
+    "titleEmphasis": {
+      "type": "string",
+      "required": true
+    },
+    "titleTrail": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.faq-item"
+    }
+  }
+}

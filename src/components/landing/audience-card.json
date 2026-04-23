@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_landing_audience_cards",
+  "info": {
+    "displayName": "Audience Card",
+    "icon": "user-circle",
+    "description": "Audience segment card — icon, split-title, body, signup-link with role"
+  },
+  "options": {},
+  "attributes": {
+    "iconEmoji": {
+      "type": "string"
+    },
+    "titleLead": {
+      "type": "string",
+      "required": true
+    },
+    "titleEmphasis": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "linkLabel": {
+      "type": "string",
+      "required": true
+    },
+    "linkHref": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "enumeration",
+      "enum": ["expeditor", "transportator", "ambele"],
+      "required": true
+    }
+  }
+}

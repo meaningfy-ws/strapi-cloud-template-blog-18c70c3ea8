@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_landing_postcard_lines",
+  "info": {
+    "displayName": "Postcard Line",
+    "icon": "quote-right",
+    "description": "A single italic line on the hero postcard illustration"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

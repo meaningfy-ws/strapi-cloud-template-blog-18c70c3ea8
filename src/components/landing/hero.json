@@ -1,0 +1,68 @@
+{
+  "collectionName": "components_landing_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "rocket",
+    "description": "Hero block with split-title, primary CTA and postcard illustration content"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrow": {
+      "type": "string"
+    },
+    "titleLead": {
+      "type": "string",
+      "required": true
+    },
+    "titleEmphasis": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "primaryCtaLabel": {
+      "type": "string",
+      "required": true
+    },
+    "primaryCtaHref": {
+      "type": "string",
+      "required": true
+    },
+    "socialProofText": {
+      "type": "string"
+    },
+    "stampLabel": {
+      "type": "string"
+    },
+    "stampGlyph": {
+      "type": "string"
+    },
+    "postmarkCity": {
+      "type": "string"
+    },
+    "postmarkYear": {
+      "type": "string"
+    },
+    "postmarkLabel": {
+      "type": "string"
+    },
+    "handwrittenLines": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.postcard-line"
+    },
+    "routeFromCity": {
+      "type": "string"
+    },
+    "routeFromMeta": {
+      "type": "string"
+    },
+    "routeToCity": {
+      "type": "string"
+    },
+    "routeToMeta": {
+      "type": "string"
+    }
+  }
+}

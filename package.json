@@ -8,8 +8,10 @@
     "deploy": "strapi deploy",
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
+    "seed:landing-page": "node ./scripts/seed-landing-page.js",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "test": "node --test --test-reporter=spec 'tests/**/*.test.js'"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.34.0",

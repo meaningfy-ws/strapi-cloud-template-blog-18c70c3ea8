@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_landing_faq_items",
+  "info": {
+    "displayName": "FAQ Item",
+    "icon": "question",
+    "description": "Question + richtext answer (supports inline links)"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "answer": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

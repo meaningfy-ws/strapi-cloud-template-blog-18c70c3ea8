@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_landing_section_trusts",
+  "info": {
+    "displayName": "Section — Trust",
+    "icon": "shield",
+    "description": "Why-us section — label, split-title, trust items"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "titleLead": {
+      "type": "string",
+      "required": true
+    },
+    "titleEmphasis": {
+      "type": "string",
+      "required": true
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.trust-item"
+    }
+  }
+}

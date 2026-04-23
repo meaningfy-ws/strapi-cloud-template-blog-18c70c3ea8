@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_landing_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "align-justify",
+    "description": "Site footer — brand block, link columns, bottom lines"
+  },
+  "options": {},
+  "attributes": {
+    "logoText": {
+      "type": "string",
+      "required": true
+    },
+    "logoAccent": {
+      "type": "string"
+    },
+    "logoMark": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "text"
+    },
+    "columns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.footer-column"
+    },
+    "copyrightText": {
+      "type": "string",
+      "required": true
+    },
+    "locationLine": {
+      "type": "string"
+    }
+  }
+}

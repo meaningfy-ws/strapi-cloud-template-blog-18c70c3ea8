@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_landing_navs",
+  "info": {
+    "displayName": "Nav",
+    "icon": "compass",
+    "description": "Fixed top navigation — logo + single CTA"
+  },
+  "options": {},
+  "attributes": {
+    "logoText": {
+      "type": "string",
+      "required": true
+    },
+    "logoAccent": {
+      "type": "string"
+    },
+    "logoMark": {
+      "type": "string"
+    },
+    "ctaLabel": {
+      "type": "string",
+      "required": true
+    },
+    "ctaHref": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

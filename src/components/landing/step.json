@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_landing_steps",
+  "info": {
+    "displayName": "Step",
+    "icon": "arrow-right",
+    "description": "Numbered step with title + body"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "collectionName": "components_landing_section_signups",
+  "info": {
+    "displayName": "Section — Signup",
+    "icon": "envelope",
+    "description": "Waitlist signup section — section copy, form copy, role options, success state"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "titleLead": {
+      "type": "string",
+      "required": true
+    },
+    "titleEmphasis": {
+      "type": "string",
+      "required": true
+    },
+    "titleTrail": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "text"
+    },
+    "nameLabel": {
+      "type": "string",
+      "required": true
+    },
+    "nameHint": {
+      "type": "string"
+    },
+    "namePlaceholder": {
+      "type": "string"
+    },
+    "contactLabel": {
+      "type": "string",
+      "required": true
+    },
+    "contactPlaceholder": {
+      "type": "string"
+    },
+    "roleLabel": {
+      "type": "string",
+      "required": true
+    },
+    "roleOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.role-option"
+    },
+    "roleDefault": {
+      "type": "enumeration",
+      "enum": ["expeditor", "transportator", "ambele"],
+      "default": "expeditor"
+    },
+    "routeLabel": {
+      "type": "string",
+      "required": true
+    },
+    "routeHint": {
+      "type": "string"
+    },
+    "routePlaceholder": {
+      "type": "string"
+    },
+    "submitLabel": {
+      "type": "string",
+      "required": true
+    },
+    "privacyNote": {
+      "type": "text"
+    },
+    "successTitle": {
+      "type": "string",
+      "required": true
+    },
+    "successMessage": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

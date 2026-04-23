@@ -1,0 +1,219 @@
+{
+  "seo": {
+    "metaTitle": "hulubul.com — Trimite un colet acasă, fără bătăi de cap",
+    "metaDescription": "Platforma care conectează diaspora cu transportatorii care trec prin orașul tău. Un singur loc, fără telefoane nesfârșite prin grupurile de Facebook."
+  },
+  "nav": {
+    "logoText": "hulubul",
+    "logoAccent": ".com",
+    "logoMark": "🕊",
+    "ctaLabel": "Mă înscriu",
+    "ctaHref": "#signup"
+  },
+  "hero": {
+    "eyebrow": "În pregătire pentru lansare",
+    "titleLead": "Trimite un colet acasă,",
+    "titleEmphasis": "fără bătăi de cap.",
+    "subtitle": "Un singur loc unde îi găsești pe toți transportatorii care trec prin orașul tău. Fără telefoane nesfârșite, fără anunțuri peste anunțuri prin grupurile de Facebook — îți rezolvi problema, nu te pierzi în căutări.",
+    "primaryCtaLabel": "Anunță-mă la lansare",
+    "primaryCtaHref": "#signup",
+    "socialProofText": "Primele persoane se înscriu zilele acestea — fii printre ele.",
+    "stampLabel": "HULUBUL",
+    "stampGlyph": "🕊",
+    "postmarkCity": "Chișinău",
+    "postmarkYear": "2026",
+    "postmarkLabel": "Livrat",
+    "handwrittenLines": [
+      { "text": "Mamă, am trimis coletul săptămâna asta." },
+      { "text": "Tolea pleacă miercuri, ajunge vineri la tine." },
+      { "text": "Te sună înainte, să fii acasă." }
+    ],
+    "routeFromCity": "Luxembourg",
+    "routeFromMeta": "plecare mier., 14 apr.",
+    "routeToCity": "Chișinău",
+    "routeToMeta": "sosire vin., 16 apr."
+  },
+  "problem": {
+    "label": "Problema",
+    "titleLead": "Cunoști situația,",
+    "titleEmphasis": "nu-i așa?",
+    "intro": "Vrei să trimiți un colet acasă. Și începe povestea pe care toți o știm.",
+    "cards": [
+      {
+        "number": "01",
+        "title": "Cauți ore întregi",
+        "description": "Scrii în 3–4 grupuri de Facebook. Aștepți răspunsuri. Suni cunoscuți care cunosc pe alții."
+      },
+      {
+        "number": "02",
+        "title": "Negociezi pe bucăți",
+        "description": "Cu cine? Când? De unde pleacă, pe unde trece? Cât costă? De fiecare dată o iei de la capăt cu altcineva."
+      },
+      {
+        "number": "03",
+        "title": "Nu știi pe cine să crezi",
+        "description": "Primul care răspunde nu e neapărat cel mai bun. Iar tu nu ai cum să verifici dinainte."
+      }
+    ]
+  },
+  "howItWorks": {
+    "label": "Cum funcționează",
+    "titleLead": "Trei pași.",
+    "titleEmphasis": "Atât.",
+    "intro": "Aceleași conversații pe care le ai și acum, dar strânse într-un singur loc — și făcute mult mai simplu.",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Spune ce vrei să trimiți",
+        "description": "Un colet, din ce oraș, până unde și cam când. Durează sub un minut."
+      },
+      {
+        "number": "2",
+        "title": "Vezi cine trece prin oraș",
+        "description": "Transportatorii care trec prin localitatea ta îți răspund cu preț și detalii clare."
+      },
+      {
+        "number": "3",
+        "title": "Alegi și trimiți",
+        "description": "Vorbești direct cu transportatorul ales. Stabiliți împreună cum și unde predai coletul."
+      }
+    ],
+    "note": "Fără comisioane ascunse. Plătești direct transportatorului, ca până acum — doar că mult mai simplu de găsit."
+  },
+  "audience": {
+    "label": "Pentru cine",
+    "titleLead": "Cine ești?",
+    "titleEmphasis": "Cel care...",
+    "cards": [
+      {
+        "iconEmoji": "📦",
+        "titleLead": "...",
+        "titleEmphasis": "trimite pachete",
+        "description": "Ai familie sau prieteni în Moldova? Sau invers, în diaspora? Găsești rapid pe cineva de încredere care trece prin orașul tău săptămâna asta — fără ore pierdute prin grupuri.",
+        "linkLabel": "Mă înscriu ca expeditor →",
+        "linkHref": "#signup",
+        "role": "expeditor"
+      },
+      {
+        "iconEmoji": "🚐",
+        "titleLead": "...",
+        "titleEmphasis": "face curse regulate",
+        "description": "Conduci pe rutele Moldova–Europa? Umple spațiul liber din mașină cu cereri relevante, fără să cauți tu prin grupuri. Clienții rămân ai tăi — noi îți aducem alții noi.",
+        "linkLabel": "Mă înscriu ca transportator →",
+        "linkHref": "#signup",
+        "role": "transportator"
+      }
+    ]
+  },
+  "trust": {
+    "label": "De ce hulubul",
+    "titleLead": "Ce facem",
+    "titleEmphasis": "diferit.",
+    "items": [
+      {
+        "glyph": "€",
+        "title": "Fără intermediari lacomi",
+        "description": "Nu luăm comision din tranzacție. Vorbești și plătești direct transportatorului, ca până acum."
+      },
+      {
+        "glyph": "◷",
+        "title": "Fără formulare lungi",
+        "description": "Câteva câmpuri, limbaj normal. Funcționează și la telefon, nu doar la calculator."
+      },
+      {
+        "glyph": "✦",
+        "title": "Rute reale, oameni reali",
+        "description": "Afișăm doar transportatori activi pe rute active. Nu listări vechi, nu promisiuni pe hârtie."
+      },
+      {
+        "glyph": "✎",
+        "title": "Construim împreună cu voi",
+        "description": "Suntem la început. Ce ne spui tu acum modelează platforma înainte să lansăm oficial."
+      }
+    ]
+  },
+  "signup": {
+    "label": "Lista de așteptare",
+    "titleLead": "Intră pe listă, fii",
+    "titleEmphasis": "primul",
+    "titleTrail": " anunțat.",
+    "intro": "Îți scriem pe email sau pe WhatsApp când lansăm, și te ținem la curent cu dezvoltarea. Fără spam, fără reclame, fără date împărtășite terților.",
+    "nameLabel": "Nume",
+    "nameHint": "(ca să îți scriem pe nume)",
+    "namePlaceholder": "Ex: Ion Popescu",
+    "contactLabel": "Email sau WhatsApp",
+    "contactPlaceholder": "email@exemplu.com sau +373...",
+    "roleLabel": "Cine ești?",
+    "roleOptions": [
+      { "value": "expeditor", "label": "Trimit pachete" },
+      { "value": "transportator", "label": "Sunt transportator" },
+      { "value": "ambele", "label": "Ambele" }
+    ],
+    "roleDefault": "expeditor",
+    "routeLabel": "Ruta care te interesează",
+    "routeHint": "(opțional)",
+    "routePlaceholder": "Ex: Luxembourg → Chișinău",
+    "submitLabel": "Mă înscriu pe listă →",
+    "privacyNote": "Datele tale rămân la noi. Le folosim doar ca să te anunțăm la lansare.",
+    "successTitle": "Te-am adăugat pe listă!",
+    "successMessage": "Îți scriem pe email sau pe WhatsApp când lansăm pe ruta ta, și te ținem la curent cu dezvoltarea. Mulțumim că crezi în hulubul.com."
+  },
+  "faq": {
+    "label": "Întrebări frecvente",
+    "titleLead": "Ce ne",
+    "titleEmphasis": "întreabă",
+    "titleTrail": " lumea.",
+    "items": [
+      {
+        "question": "Când lansați?",
+        "answer": "Primele rute sunt în pregătire. Cei din lista de așteptare primesc acces înaintea celorlalți. De aceea te întrebăm și ruta de interes — lansăm mai repede acolo unde avem mai multe cereri."
+      },
+      {
+        "question": "Este gratuit?",
+        "answer": "Da, complet gratuit deocamdată. Nu luăm comision din tranzacție, nu avem costuri ascunse. Scopul nostru acum este să rezolvăm problema — modelul de finanțare îl vom construi împreună cu utilizatorii, transparent, atunci când va fi momentul."
+      },
+      {
+        "question": "Ce rute operăm?",
+        "answer": "Am adunat rutele cele mai populare din anunțurile publice de pe internet și le-am pus pe o hartă. Pe măsură ce transportatorii se înscriu, datele devin tot mai exacte și mai complete.\n\n[Vezi harta noastră →](#)"
+      },
+      {
+        "question": "Sunt transportator — îmi luați clienții?",
+        "answer": "Nu, dimpotrivă. Îți aducem clienți noi și îți dăm posibilitatea să-i localizezi și să-i identifici ușor, pe rutele pe care deja le faci. Relația rămâne între tine și expeditor — păstrezi controlul complet, vorbești direct cu ei, primești banii direct."
+      },
+      {
+        "question": "Cum știu că transportatorul este serios?",
+        "answer": "La început, verificăm manual fiecare transportator înainte să apară pe platformă. Pe termen lung, construim un sistem de reputație bazat pe curse reale — nu pe stele plătite."
+      },
+      {
+        "question": "Ce fac dacă pierd pachetul sau se deteriorează?",
+        "answer": "Aceasta este o temă serioasă pe care o construim cu atenție împreună cu transportatorii și expeditorii. Dacă vrei să ne ajuți să găsim cea mai bună formulă, înscrie-te pe listă și îți scriem pentru o discuție scurtă."
+      }
+    ]
+  },
+  "footer": {
+    "logoText": "hulubul",
+    "logoAccent": ".com",
+    "logoMark": "🕊",
+    "tagline": "Conectăm oameni, locuri și povești. O platformă construită pentru diaspora moldovenească și pentru cei care fac cursele acasă.",
+    "columns": [
+      {
+        "title": "Platformă",
+        "links": [
+          { "label": "Lista de așteptare", "href": "#signup", "external": false },
+          { "label": "Despre", "href": "#", "external": false },
+          { "label": "Pentru transportatori", "href": "#", "external": false }
+        ]
+      },
+      {
+        "title": "Contact",
+        "links": [
+          { "label": "contact@hulubul.com", "href": "mailto:contact@hulubul.com", "external": true },
+          { "label": "Confidențialitate", "href": "#", "external": false },
+          { "label": "Termeni", "href": "#", "external": false }
+        ]
+      }
+    ],
+    "copyrightText": "© 2026 hulubul.com — Toate drepturile rezervate.",
+    "locationLine": "Construit cu grijă, în Luxembourg și Chișinău."
+  }
+}

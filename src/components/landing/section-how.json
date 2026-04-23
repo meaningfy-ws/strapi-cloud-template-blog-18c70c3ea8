@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_landing_section_hows",
+  "info": {
+    "displayName": "Section — How it works",
+    "icon": "sitemap",
+    "description": "How-it-works section — label, split-title, intro, steps, closing note"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "titleLead": {
+      "type": "string",
+      "required": true
+    },
+    "titleEmphasis": {
+      "type": "string",
+      "required": true
+    },
+    "intro": {
+      "type": "text"
+    },
+    "steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.step"
+    },
+    "note": {
+      "type": "text"
+    }
+  }
+}

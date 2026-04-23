@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_landing_section_problems",
+  "info": {
+    "displayName": "Section — Problem",
+    "icon": "exclamation-triangle",
+    "description": "Dark problem section — label, split-title, intro, numbered cards"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "titleLead": {
+      "type": "string",
+      "required": true
+    },
+    "titleEmphasis": {
+      "type": "string",
+      "required": true
+    },
+    "intro": {
+      "type": "text"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.numbered-card"
+    }
+  }
+}

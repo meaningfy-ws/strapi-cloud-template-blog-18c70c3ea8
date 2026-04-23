@@ -1,0 +1,76 @@
+{
+  "kind": "singleType",
+  "collectionName": "landing_pages",
+  "info": {
+    "singularName": "landing-page",
+    "pluralName": "landing-pages",
+    "displayName": "Landing Page",
+    "description": "The hulubul.com marketing landing page (ro)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "required": true
+    },
+    "nav": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.nav",
+      "required": true
+    },
+    "hero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.hero",
+      "required": true
+    },
+    "problem": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.section-problem",
+      "required": true
+    },
+    "howItWorks": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.section-how",
+      "required": true
+    },
+    "audience": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.section-audience",
+      "required": true
+    },
+    "trust": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.section-trust",
+      "required": true
+    },
+    "signup": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.section-signup",
+      "required": true
+    },
+    "faq": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.section-faq",
+      "required": true
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "landing.footer",
+      "required": true
+    }
+  }
+}

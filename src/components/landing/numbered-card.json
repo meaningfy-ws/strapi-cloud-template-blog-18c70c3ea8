@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_landing_numbered_cards",
+  "info": {
+    "displayName": "Numbered Card",
+    "icon": "list-ol",
+    "description": "Numbered problem card with title + body"
+  },
+  "options": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

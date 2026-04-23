@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_links",
+  "info": {
+    "displayName": "Link",
+    "icon": "link",
+    "description": "A label + href pair, optionally external"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "external": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

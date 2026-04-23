@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_landing_section_audiences",
+  "info": {
+    "displayName": "Section — Audience",
+    "icon": "users",
+    "description": "Who-is-this-for section — label, split-title, audience cards"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "titleLead": {
+      "type": "string",
+      "required": true
+    },
+    "titleEmphasis": {
+      "type": "string",
+      "required": true
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "landing.audience-card"
+    }
+  }
+}

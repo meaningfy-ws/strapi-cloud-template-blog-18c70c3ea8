@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_landing_trust_items",
+  "info": {
+    "displayName": "Trust Item",
+    "icon": "check-circle",
+    "description": "Single glyph + title + body pair inside the Trust section"
+  },
+  "options": {},
+  "attributes": {
+    "glyph": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
