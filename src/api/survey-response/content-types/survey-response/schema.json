@@ -1,0 +1,126 @@
+{
+  "kind": "collectionType",
+  "collectionName": "survey_responses",
+  "info": {
+    "singularName": "survey-response",
+    "pluralName": "survey-responses",
+    "displayName": "Survey Response",
+    "description": "Habitual experience, mental model, and conversion intent from diaspora package senders"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "whatsapp": {
+      "type": "string",
+      "required": false
+    },
+    "role": {
+      "type": "enumeration",
+      "enum": ["expeditor", "transportator", "ambele"],
+      "required": true,
+      "default": "expeditor"
+    },
+    "routes": {
+      "type": "string",
+      "required": false
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": ["waitlist_followup", "standalone", "other"],
+      "required": true,
+      "default": "standalone"
+    },
+    "sendingFrequency": {
+      "type": "enumeration",
+      "enum": ["niciodata", "rar", "cateva_ori_pe_an", "lunar", "mai_des"],
+      "required": false
+    },
+    "packageTypes": {
+      "type": "json",
+      "required": false
+    },
+    "packageTypesOther": {
+      "type": "string",
+      "required": false
+    },
+    "howFindTransporter": {
+      "type": "json",
+      "required": false
+    },
+    "howFindTransporterOther": {
+      "type": "string",
+      "required": false
+    },
+    "searchDuration": {
+      "type": "enumeration",
+      "enum": ["sub_o_ora", "cateva_ore", "una_doua_zile", "mai_mult"],
+      "required": false
+    },
+    "contactedCount": {
+      "type": "enumeration",
+      "enum": ["unul", "doi_trei", "mai_multi"],
+      "required": false
+    },
+    "selectionCriteria": {
+      "type": "json",
+      "required": false
+    },
+    "safetyPriceAttitude": {
+      "type": "enumeration",
+      "enum": ["nu", "uneori", "da_depinde"],
+      "required": false
+    },
+    "painPointsStructured": {
+      "type": "json",
+      "required": false
+    },
+    "painPointDetails": {
+      "type": "text",
+      "required": false
+    },
+    "issuesExperienced": {
+      "type": "json",
+      "required": false
+    },
+    "trustSignals": {
+      "type": "json",
+      "required": false
+    },
+    "platformTrustRequirements": {
+      "type": "text",
+      "required": false
+    },
+    "idealExperience": {
+      "type": "text",
+      "required": false
+    },
+    "biggestTimeSaver": {
+      "type": "text",
+      "required": false
+    },
+    "willShipSoon": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "wantsCallback": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "callbackPhone": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
