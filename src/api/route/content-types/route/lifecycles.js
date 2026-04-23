@@ -1,16 +1,18 @@
 'use strict';
 
-const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search';
-const NOMINATIM_DELAY_MS = 1100; // Nominatim rate limit: max 1 req/sec
+const GEO_SERVICE_URL = process.env.GEO_SERVICE_URL || 'https://photon.komoot.io';
+const GEO_SERVICE_TOKEN = process.env.GEO_SERVICE_TOKEN || null;
 
 async function geocodeCity(city) {
-  const url = `${NOMINATIM_URL}?q=${encodeURIComponent(city)}&format=json&limit=1`;
-  const response = await fetch(url, {
-    headers: { 'User-Agent': 'hulubul.com/1.0 (contact@hulubul.com)' },
-  });
-  const results = await response.json();
-  if (!results.length) return null;
-  return [parseFloat(results[0].lon), parseFloat(results[0].lat)];
+  const url = `${GEO_SERVICE_URL}/api/?q=${encodeURIComponent(city)}&limit=1&lang=en`;
+  const headers = { 'User-Agent': 'hulubul.com/1.0 (contact@hulubul.com)' };
+  if (GEO_SERVICE_TOKEN) headers['Authorization'] = `Bearer ${GEO_SERVICE_TOKEN}`;
+
+  const response = await fetch(url, { headers });
+  const data = await response.json();
+  if (!data.features?.length) return null;
+  // Photon returns GeoJSON: coordinates are [lon, lat]
+  return data.features[0].geometry.coordinates;
 }
 
 async function buildGeoJson(citiesText) {
@@ -25,8 +27,6 @@ async function buildGeoJson(citiesText) {
     } catch (err) {
       strapi.log.warn(`[route/lifecycles] Geocoding failed for city: "${city}"`, err.message);
     }
-    // Respect Nominatim's 1 req/sec policy
-    await new Promise(resolve => setTimeout(resolve, NOMINATIM_DELAY_MS));
   }
 
   if (coordinates.length < 2) return null;

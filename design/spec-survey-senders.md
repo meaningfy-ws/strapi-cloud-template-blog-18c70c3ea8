@@ -1,7 +1,13 @@
-# Spec: `survey-response` collection type
+# Spec: `survey-sender` collection type
 
-New collection. Captures habitual experience, mental model, and conversion intent from
-people who have sent packages via informal channels (diaspora transporters).
+> **Rename note:** the existing Strapi collection `survey-response` must be renamed to
+> `survey-sender` (API UID: `api::survey-sender.survey-sender`) to match its sibling
+> `survey-transporter`.
+
+Captures habitual experience, mental model, and conversion intent from
+people who send packages via informal channels (diaspora transporters).
+
+Sibling: `api::survey-transporter.survey-transporter` — see `spec-survey-transporters.md`.
 
 Linked to `waitlist-submission` softly via `email` — no hard foreign key. Works both
 as a follow-up survey (sent to waitlist members) and as a standalone page for new visitors.

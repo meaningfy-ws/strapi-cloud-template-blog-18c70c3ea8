@@ -1,11 +1,11 @@
 {
   "kind": "collectionType",
-  "collectionName": "survey_responses",
+  "collectionName": "survey_senders",
   "info": {
-    "singularName": "survey-response",
-    "pluralName": "survey-responses",
-    "displayName": "Survey Response",
-    "description": "Habitual experience, mental model, and conversion intent from diaspora package senders"
+    "singularName": "survey-sender",
+    "pluralName": "survey-senders",
+    "displayName": "Survey — Sender",
+    "description": "Habitual experience, mental model, and conversion intent from diaspora package senders. Sibling of survey-transporter."
   },
   "options": {
     "draftAndPublish": false

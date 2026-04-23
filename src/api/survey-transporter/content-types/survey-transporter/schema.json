@@ -1,0 +1,146 @@
+{
+  "kind": "collectionType",
+  "collectionName": "survey_transporters",
+  "info": {
+    "singularName": "survey-transporter",
+    "pluralName": "survey-transporters",
+    "displayName": "Survey — Transporter",
+    "description": "Habitual operational experience, pain points, capacity patterns, and platform interest from active diaspora transporters. Sibling of survey-sender."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "whatsapp": {
+      "type": "string",
+      "required": false
+    },
+    "transporterType": {
+      "type": "enumeration",
+      "enum": ["individual", "company"],
+      "required": false
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": ["waitlist_followup", "standalone", "other"],
+      "required": true,
+      "default": "standalone"
+    },
+    "experienceYears": {
+      "type": "enumeration",
+      "enum": ["sub_un_an", "unu_trei_ani", "trei_cinci_ani", "peste_cinci_ani"],
+      "required": false
+    },
+    "tripFrequency": {
+      "type": "enumeration",
+      "enum": ["zilnic", "de_mai_multe_ori_pe_saptamana", "saptamanal", "lunar"],
+      "required": false
+    },
+    "usualRoutes": {
+      "type": "string",
+      "required": false
+    },
+    "collectionPoints": {
+      "type": "text",
+      "required": false
+    },
+    "departurePreparation": {
+      "type": "text",
+      "required": false
+    },
+    "howFindClients": {
+      "type": "json",
+      "required": false
+    },
+    "howFindClientsOther": {
+      "type": "string",
+      "required": false
+    },
+    "hasCapacityGaps": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "capacityGapsDetails": {
+      "type": "text",
+      "required": false
+    },
+    "packageTracking": {
+      "type": "text",
+      "required": false
+    },
+    "pricingMethod": {
+      "type": "text",
+      "required": false
+    },
+    "clientCommunication": {
+      "type": "json",
+      "required": false
+    },
+    "biggestChallenge": {
+      "type": "text",
+      "required": false
+    },
+    "issuesExperienced": {
+      "type": "json",
+      "required": false
+    },
+    "issuesDetails": {
+      "type": "text",
+      "required": false
+    },
+    "refusedPackageTypes": {
+      "type": "json",
+      "required": false
+    },
+    "hadCustomsIssues": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "customsIssuesDetails": {
+      "type": "text",
+      "required": false
+    },
+    "preferredRequestChannel": {
+      "type": "json",
+      "required": false
+    },
+    "preferredRequestChannelOther": {
+      "type": "string",
+      "required": false
+    },
+    "platformBarriers": {
+      "type": "text",
+      "required": false
+    },
+    "hasUpcomingTrip": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "acceptsNewClients": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "wantsCallback": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "callbackPhone": {
+      "type": "string",
+      "required": false
+    }
+  }
+}

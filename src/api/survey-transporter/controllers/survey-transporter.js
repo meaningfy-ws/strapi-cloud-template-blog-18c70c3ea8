@@ -2,4 +2,4 @@
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::survey-response.survey-response');
+module.exports = createCoreController('api::survey-transporter.survey-transporter');

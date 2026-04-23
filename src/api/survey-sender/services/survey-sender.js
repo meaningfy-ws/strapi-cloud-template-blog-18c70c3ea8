@@ -2,4 +2,4 @@
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::survey-response.survey-response');
+module.exports = createCoreService('api::survey-sender.survey-sender');
