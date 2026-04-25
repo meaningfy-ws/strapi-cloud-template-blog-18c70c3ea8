@@ -64,9 +64,10 @@ that calls the Nominatim (OpenStreetMap) geocoding API on save.
 
 **Lifecycle hook behaviour:**
 - Fires on `beforeCreate` and `beforeUpdate`
-- Triggers only when `citiesText` has changed
-- Parses city names, calls Nominatim for each, builds a `LineString` GeoJSON
+- Triggers only when `citiesText` is present in the update payload
+- Parses city names, calls the Photon (Komoot) geocoding API for each city, builds a `LineString` GeoJSON
 - Writes result into `data.geoJson`
+- Geocoding service is configurable via `GEO_SERVICE_URL` env var (default: `https://photon.komoot.io`)
 - On geocoding failure: logs warning, leaves `geoJson` null — admin is notified via
   the Strapi admin response that geocoding failed and must be corrected manually
 
@@ -155,9 +156,91 @@ and require admin approval before appearing publicly. No migration needed.
 
 ---
 
+## API Access & Frontend Integration
+
+### Public read permissions
+
+The following actions are granted to the Public role so the frontend can read transport
+data without authentication. Seeded by `npm run seed:transport-types`.
+
+| Collection / endpoint | Actions |
+|---|---|
+| `transport-type` | `find`, `findOne` |
+| `route` | `find`, `findOne` |
+| `transporter` | `find`, `findOne` |
+| `route-schedule` | `find`, `findOne` |
+| `route` (custom) | `suggestCities` |
+
+### Geocode suggest endpoint
+
+Used by the city autocomplete input in the route editor. Proxies Photon server-side
+so `GEO_SERVICE_URL` is never exposed to the browser.
+
+```
+GET /api/routes/geocode-suggest?q=<city fragment>
+```
+
+**No authentication required.** Minimum query length: 2 characters.
+
+**Response:**
+```json
+{
+  "suggestions": [
+    { "name": "Luxembourg, Luxembourg", "lon": 6.1296, "lat": 49.6116 },
+    { "name": "Luxembourg, Moselle", "lon": 6.1354, "lat": 49.4833 }
+  ]
+}
+```
+
+**Frontend autocomplete behaviour:**
+- The `citiesText` field contains a comma-separated ordered list of city names.
+- The first city is the departure point; the last is the destination.
+- The autocomplete input extracts the **last segment after the final comma** (trimmed)
+  and sends it as `q`. For the first city there is no preceding comma, so the entire
+  input value is used.
+- On selection the chosen `name` replaces that last segment and a comma is appended
+  so the user can continue typing the next city.
+
+**Implementation:** custom controller action `suggestCities` on `api::route.route`,
+wired via `src/api/route/routes/geocode-suggest.js` with `auth: false` (bypasses
+users-permissions JWT check at the route level).
+
+### Filtering patterns
+
+All transport collections are filterable via Strapi REST API query parameters.
+
+**Filter routes by city name (containsi):**
+```
+GET /api/routes?filters[citiesText][$containsi]=Luxembourg&sort=name:asc
+```
+
+**Filter schedules by transporter (by name or id):**
+```
+GET /api/route-schedules
+  ?filters[transporter][name][$containsi]=Ionescu
+  &populate[transporter][fields][0]=name&populate[transporter][fields][1]=phoneNumbers
+  &populate[route][fields][0]=name&populate[route][fields][1]=citiesText
+```
+
+**Filter schedules by frequency or departure day:**
+```
+GET /api/route-schedules
+  ?filters[frequency][$eq]=weekly
+  &filters[departureDays][$contains]=wed
+  &populate[transporter]=*&populate[route]=*
+```
+
+**List all schedules for a given route (by route id):**
+```
+GET /api/route-schedules
+  ?filters[route][id][$eq]=42
+  &populate[transporter][fields][0]=name&populate[transporter][fields][1]=phoneNumbers
+```
+
+---
+
 ## Out of scope
 
 - Authentication / permissions wiring for self-registration
 - Frontend map rendering (separate frontend repository)
-- Geocoding service selection beyond Nominatim (can be swapped via env var)
 - Transporter ratings or reviews
