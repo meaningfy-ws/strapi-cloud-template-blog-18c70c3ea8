@@ -9,6 +9,7 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "seed:landing-page": "node ./scripts/seed-landing-page.js",
+    "seed:transport-types": "node ./scripts/seed-transport-types.js",
     "start": "strapi start",
     "strapi": "strapi",
     "test": "node --test --test-reporter=spec 'tests/**/*.test.js'"
