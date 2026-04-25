@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transporters",
+  "info": {
+    "singularName": "transporter",
+    "pluralName": "transporters",
+    "displayName": "Transporter",
+    "description": "Transport operator profile — individual driver or company offering services on one or more routes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["individual", "company"],
+      "required": true,
+      "default": "individual"
+    },
+    "phoneNumbers": {
+      "type": "json",
+      "required": true
+    },
+    "transportTypes": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::transport-type.transport-type",
+      "inversedBy": "transporters"
+    },
+    "notes": {
+      "type": "text",
+      "required": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "approved", "suspended"],
+      "required": true,
+      "default": "approved"
+    },
+    "submittedBy": {
+      "type": "string",
+      "required": false
+    },
+    "claimedBy": {
+      "type": "string",
+      "required": false
+    },
+    "schedules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::route-schedule.route-schedule",
+      "mappedBy": "transporter"
+    }
+  }
+}

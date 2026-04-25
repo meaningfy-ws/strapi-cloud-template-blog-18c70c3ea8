@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "routes",
+  "info": {
+    "singularName": "route",
+    "pluralName": "routes",
+    "displayName": "Route",
+    "description": "Named city corridor with geocoded GeoJSON path — geoJson auto-computed from citiesText on save"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "citiesText": {
+      "type": "string",
+      "required": true
+    },
+    "geoJson": {
+      "type": "json",
+      "required": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["draft", "approved", "suspended"],
+      "required": true,
+      "default": "approved"
+    },
+    "submittedBy": {
+      "type": "string",
+      "required": false
+    },
+    "claimedBy": {
+      "type": "string",
+      "required": false
+    },
+    "schedules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::route-schedule.route-schedule",
+      "mappedBy": "route"
+    }
+  }
+}

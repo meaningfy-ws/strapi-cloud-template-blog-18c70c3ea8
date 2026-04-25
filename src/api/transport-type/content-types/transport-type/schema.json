@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transport_types",
+  "info": {
+    "singularName": "transport-type",
+    "pluralName": "transport-types",
+    "displayName": "Transport Type",
+    "description": "Admin-managed lookup of transport categories — extensible without code changes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "label",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "transporters": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::transporter.transporter",
+      "mappedBy": "transportTypes"
+    }
+  }
+}
