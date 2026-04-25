@@ -13,8 +13,9 @@ test('waitlist-submission is a collection type capturing signup payload', (t) =>
   t.assert.strictEqual(schema.options.draftAndPublish, false);
 
   assertAttribute(t, schema, 'name', { type: 'string', required: true });
-  assertAttribute(t, schema, 'contact', { type: 'string', required: true });
-  assertAttribute(t, schema, 'route', { type: 'string' });
+  assertAttribute(t, schema, 'email', { type: 'email', required: true });
+  assertAttribute(t, schema, 'whatsapp', { type: 'string' });
+  assertAttribute(t, schema, 'routes', { type: 'string', required: true });
 
   const role = schema.attributes.role;
   t.assert.strictEqual(role.type, 'enumeration');
