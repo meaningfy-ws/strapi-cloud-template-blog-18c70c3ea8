@@ -14,7 +14,8 @@
   "attributes": {
     "name": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 200
     },
     "email": {
       "type": "email",
@@ -26,13 +27,56 @@
     },
     "role": {
       "type": "enumeration",
-      "enum": ["expeditor", "transportator", "ambele"],
+      "enum": ["expeditor", "transportator", "ambele", "destinatar"],
       "required": true,
       "default": "expeditor"
     },
+    "cities": {
+      "type": "json",
+      "required": false
+    },
     "routes": {
       "type": "string",
+      "required": false,
+      "maxLength": 500
+    },
+    "source": {
+      "type": "enumeration",
+      "enum": ["landing", "qr_event", "referral", "other"],
+      "required": false,
+      "default": "landing"
+    },
+    "location": {
+      "type": "json",
+      "required": false
+    },
+    "locationConsent": {
+      "type": "enumeration",
+      "enum": ["granted", "denied", "not_asked"],
+      "required": false,
+      "default": "not_asked"
+    },
+    "device": {
+      "type": "json",
+      "required": false
+    },
+    "gdprConsent": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "gdprConsentAt": {
+      "type": "datetime",
       "required": true
+    },
+    "gdprConsentVersion": {
+      "type": "string",
+      "required": true,
+      "maxLength": 64
+    },
+    "utm": {
+      "type": "json",
+      "required": false
     }
   }
 }
