@@ -10,8 +10,8 @@ This repository is one half of the platform. The frontend lives at [meaningfy-ws
 
 | Service | URL | Tier |
 |---|---|---|
-| Strapi admin | [Strapi Cloud](https://cloud.strapi.io) (free tier) | Free |
-| Frontend | Vercel (free tier) | Free |
+| Strapi admin | Hetzner VM (`10.0.1.60`) via infrastructure-stacks | Staging |
+| Frontend | Hetzner VM (`10.0.1.60`) via infrastructure-stacks | Staging |
 | Auth (SSO) | Zitadel Cloud (free tier) | Free |
 
 ---
@@ -72,6 +72,48 @@ GEO_SERVICE_TOKEN=                          # Optional bearer token for private 
 ```
 
 The admin panel runs at `http://localhost:1337/admin`.
+
+---
+
+## Docker
+
+Build and run the production image (requires a running PostgreSQL instance):
+
+```bash
+# Build
+docker build -t hulubul-strapi .
+
+# Run (connect to external PostgreSQL)
+docker run -p 1337:1337 \
+  -e DATABASE_CLIENT=postgres \
+  -e DATABASE_HOST=host.docker.internal \
+  -e DATABASE_PORT=5432 \
+  -e DATABASE_NAME=strapi \
+  -e DATABASE_USERNAME=strapi \
+  -e DATABASE_PASSWORD=strapi \
+  -e APP_KEYS="key1,key2" \
+  -e API_TOKEN_SALT=secret \
+  -e ADMIN_JWT_SECRET=secret \
+  -e TRANSFER_TOKEN_SALT=secret \
+  -e JWT_SECRET=secret \
+  hulubul-strapi
+```
+
+Or use `DATABASE_URL` instead of individual connection parameters:
+
+```bash
+docker run -p 1337:1337 \
+  -e DATABASE_CLIENT=postgres \
+  -e DATABASE_URL=postgresql://strapi:strapi@host.docker.internal:5432/strapi \
+  -e APP_KEYS="key1,key2" \
+  -e API_TOKEN_SALT=secret \
+  -e ADMIN_JWT_SECRET=secret \
+  -e TRANSFER_TOKEN_SALT=secret \
+  -e JWT_SECRET=secret \
+  hulubul-strapi
+```
+
+The image uses a non-root `strapi` user (uid 1001). Uploads are stored in `/app/public/uploads`.
 
 ---
 
