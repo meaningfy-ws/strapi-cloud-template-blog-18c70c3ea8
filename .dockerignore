@@ -1,0 +1,65 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build output
+.tmp
+dist
+build
+
+# Database (local SQLite)
+database/*.db
+database/*.sqlite*
+
+# Test artifacts
+coverage
+tests
+
+# Design / docs (not needed at runtime)
+design
+docs
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Env files (never in image)
+.env
+.env.*
+!.env.example
+
+# Editor / IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Strapi
+.strapi
+.strapi-updater.json
+.strapi-cloud.json
+license.txt
+exports
+
+# CI / tooling
+.github
+.gitnexus
+.mcp.json
+AGENTS.md
+CLAUDE.md
+
+# Misc
+LICENSE
+*.md
+!README.md
