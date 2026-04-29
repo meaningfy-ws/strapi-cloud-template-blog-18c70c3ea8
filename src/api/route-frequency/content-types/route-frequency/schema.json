@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "route_frequencies",
+  "info": {
+    "singularName": "route-frequency",
+    "pluralName": "route-frequencies",
+    "displayName": "Route Frequency",
+    "description": "Admin-managed lookup of schedule frequency values — extensible without code changes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "label",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "schedules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::route-schedule.route-schedule",
+      "mappedBy": "frequency"
+    }
+  }
+}

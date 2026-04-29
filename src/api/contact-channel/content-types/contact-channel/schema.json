@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_channels",
+  "info": {
+    "singularName": "contact-channel",
+    "pluralName": "contact-channels",
+    "displayName": "Contact Channel",
+    "description": "Admin-managed lookup of contact channel types (phone, whatsapp, viber, …) — extensible without code changes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "label",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    }
+  }
+}
