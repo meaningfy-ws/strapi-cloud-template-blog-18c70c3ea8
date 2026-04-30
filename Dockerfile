@@ -45,6 +45,7 @@ COPY --chown=strapi:strapi --from=builder /app/src ./src
 COPY --chown=strapi:strapi --from=builder /app/public ./public
 COPY --chown=strapi:strapi --from=builder /app/scripts ./scripts
 COPY --chown=strapi:strapi --from=builder /app/types ./types
+COPY --chown=strapi:strapi --from=builder /app/data ./data
 COPY --chown=strapi:strapi --from=builder /app/favicon.png ./
 COPY --chown=strapi:strapi --from=builder /app/jsconfig.json ./
 
