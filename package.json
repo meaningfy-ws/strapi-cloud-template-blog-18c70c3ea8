@@ -1,5 +1,5 @@
 {
-  "name": "my-app-name",
+  "name": "hulubul-strapi",
   "version": "0.1.0",
   "private": true,
   "description": "A Strapi application",
@@ -16,18 +16,20 @@
     "test": "node --test --test-reporter=spec 'tests/**/*.test.js'"
   },
   "dependencies": {
-    "@strapi/plugin-cloud": "5.34.0",
     "@strapi/plugin-users-permissions": "5.34.0",
     "@strapi/strapi": "5.34.0",
-    "better-sqlite3": "11.3.0",
     "fs-extra": "^10.0.0",
     "mime-types": "^2.1.27",
+    "pg": "^8.13.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "styled-components": "^6.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@strapi/plugin-cloud": "5.34.0",
+    "better-sqlite3": "11.3.0"
+  },
   "engines": {
     "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
