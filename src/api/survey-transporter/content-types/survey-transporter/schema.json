@@ -141,6 +141,11 @@
     "callbackPhone": {
       "type": "string",
       "required": false
+    },
+    "consentRecord": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::consent-record.consent-record"
     }
   }
 }
