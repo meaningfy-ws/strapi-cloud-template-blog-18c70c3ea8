@@ -92,6 +92,13 @@ test('beforeCreate skips validation when contactChannels is absent', async () =>
   await assert.doesNotReject(() => hooks.beforeCreate(makeEvent(undefined)));
 });
 
+test('beforeUpdate rejects explicit null (cannot null-out required field)', async () => {
+  await assert.rejects(
+    () => hooks.beforeUpdate(makeEvent(null)),
+    { name: 'ValidationError' }
+  );
+});
+
 test('beforeUpdate accepts valid contact channels', async () => {
   await assert.doesNotReject(() => hooks.beforeUpdate(makeEvent([
     { number: '+33612345678', channels: ['whatsapp', 'viber'] },

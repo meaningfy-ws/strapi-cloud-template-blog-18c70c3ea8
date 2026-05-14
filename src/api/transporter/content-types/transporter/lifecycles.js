@@ -21,7 +21,9 @@ async function loadValidChannelSlugs() {
 }
 
 async function validateContactChannels(contactChannels) {
-  if (!contactChannels) return;
+  // Skip only when the field is absent from the payload (partial update).
+  // Explicit null must fall through and be rejected — the field is required.
+  if (contactChannels === undefined) return;
 
   if (!Array.isArray(contactChannels)) {
     throw new errors.ValidationError(
