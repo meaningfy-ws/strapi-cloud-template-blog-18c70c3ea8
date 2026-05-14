@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consent_records",
+  "info": {
+    "singularName": "consent-record",
+    "pluralName": "consent-records",
+    "displayName": "Consent Record",
+    "description": "Server-side audit trail of cookie/tracker consent decisions (GDPR Art. 7(1) / ePrivacy Art. 5(3))."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sessionId": {
+      "type": "string",
+      "required": true,
+      "maxLength": 64
+    },
+    "analytics": {
+      "type": "enumeration",
+      "enum": ["granted", "denied"],
+      "required": true
+    },
+    "marketing": {
+      "type": "enumeration",
+      "enum": ["granted", "denied"],
+      "required": true
+    },
+    "version": {
+      "type": "string",
+      "required": true,
+      "maxLength": 32
+    },
+    "event": {
+      "type": "enumeration",
+      "enum": ["grant", "update", "withdraw"],
+      "required": true
+    },
+    "choseAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "userAgent": {
+      "type": "string",
+      "required": false,
+      "maxLength": 512
+    },
+    "language": {
+      "type": "string",
+      "required": false,
+      "maxLength": 16
+    },
+    "country": {
+      "type": "string",
+      "required": false,
+      "maxLength": 2
+    },
+    "referrer": {
+      "type": "string",
+      "required": false,
+      "maxLength": 2048
+    }
+  }
+}

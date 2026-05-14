@@ -17,9 +17,9 @@ test('route-schedule is a collection type linking transporter to route with timi
   assertAttribute(t, schema, 'notes', { type: 'text' });
 
   const frequency = schema.attributes.frequency;
-  t.assert.strictEqual(frequency.type, 'enumeration');
-  t.assert.deepStrictEqual(frequency.enum, ['weekly', 'biweekly', 'monthly', 'on_demand']);
-  t.assert.strictEqual(frequency.required, true);
+  t.assert.strictEqual(frequency.type, 'relation');
+  t.assert.strictEqual(frequency.relation, 'manyToOne');
+  t.assert.strictEqual(frequency.target, 'api::route-frequency.route-frequency');
 
   const status = schema.attributes.status;
   t.assert.strictEqual(status.type, 'enumeration');

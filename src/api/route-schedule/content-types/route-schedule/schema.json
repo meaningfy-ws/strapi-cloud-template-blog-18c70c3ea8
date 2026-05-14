@@ -25,9 +25,10 @@
       "inversedBy": "schedules"
     },
     "frequency": {
-      "type": "enumeration",
-      "enum": ["weekly", "biweekly", "monthly", "on_demand"],
-      "required": true
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::route-frequency.route-frequency",
+      "inversedBy": "schedules"
     },
     "departureDays": {
       "type": "json",

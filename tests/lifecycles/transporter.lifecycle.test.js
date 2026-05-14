@@ -30,49 +30,117 @@ const LIFECYCLE_PATH = path.resolve(
 
 const hooks = require(LIFECYCLE_PATH);
 
-function makeEvent(phoneNumbers) {
-  return { params: { data: { phoneNumbers } } };
+function makeEvent(contactChannels) {
+  return { params: { data: { contactChannels } } };
 }
 
-test('beforeCreate accepts valid international phone numbers', () => {
-  assert.doesNotThrow(() => hooks.beforeCreate(makeEvent(['+352621123456', '+37369123456'])));
-  assert.doesNotThrow(() => hooks.beforeCreate(makeEvent(['+352 621 123 456'])));
-  assert.doesNotThrow(() => hooks.beforeCreate(makeEvent(['0040721123456'])));
-  assert.doesNotThrow(() => hooks.beforeCreate(makeEvent(['00352 621 123 456'])));
+// --- structural validation (no strapi global — uses FALLBACK_CHANNELS) ------
+
+test('beforeCreate accepts valid contact channels', async () => {
+  await assert.doesNotReject(() => hooks.beforeCreate(makeEvent([
+    { number: '+352621123456', channels: ['phone', 'whatsapp'] },
+  ])));
+  await assert.doesNotReject(() => hooks.beforeCreate(makeEvent([
+    { number: '+352 621 123 456', channels: ['viber'] },
+    { number: '0040721123456', channels: ['phone'] },
+  ])));
 });
 
-test('beforeCreate rejects number missing + or 00 prefix', () => {
-  assert.throws(
-    () => hooks.beforeCreate(makeEvent(['352621123456'])),
+test('beforeCreate rejects number missing + or 00 prefix', async () => {
+  await assert.rejects(
+    () => hooks.beforeCreate(makeEvent([{ number: '352621123456', channels: ['phone'] }])),
     { name: 'ValidationError' }
   );
 });
 
-test('beforeCreate rejects non-string array element', () => {
-  assert.throws(
-    () => hooks.beforeCreate(makeEvent([352621123456])),
+test('beforeCreate rejects non-string number', async () => {
+  await assert.rejects(
+    () => hooks.beforeCreate(makeEvent([{ number: 352621123456, channels: ['phone'] }])),
     { name: 'ValidationError' }
   );
 });
 
-test('beforeCreate rejects non-array phoneNumbers', () => {
-  assert.throws(
-    () => hooks.beforeCreate(makeEvent('+352621123456')),
+test('beforeCreate rejects invalid channel slug (fallback set)', async () => {
+  await assert.rejects(
+    () => hooks.beforeCreate(makeEvent([{ number: '+352621123456', channels: ['telegram'] }])),
     { name: 'ValidationError' }
   );
 });
 
-test('beforeCreate skips validation when phoneNumbers is absent', () => {
-  assert.doesNotThrow(() => hooks.beforeCreate(makeEvent(undefined)));
-});
-
-test('beforeUpdate accepts valid phone numbers', () => {
-  assert.doesNotThrow(() => hooks.beforeUpdate(makeEvent(['+33612345678'])));
-});
-
-test('beforeUpdate rejects invalid phone numbers', () => {
-  assert.throws(
-    () => hooks.beforeUpdate(makeEvent(['notaphone'])),
+test('beforeCreate rejects empty channels array', async () => {
+  await assert.rejects(
+    () => hooks.beforeCreate(makeEvent([{ number: '+352621123456', channels: [] }])),
     { name: 'ValidationError' }
   );
+});
+
+test('beforeCreate rejects non-array contactChannels', async () => {
+  await assert.rejects(
+    () => hooks.beforeCreate(makeEvent({ number: '+352621123456', channels: ['phone'] })),
+    { name: 'ValidationError' }
+  );
+});
+
+test('beforeCreate rejects non-object entry', async () => {
+  await assert.rejects(
+    () => hooks.beforeCreate(makeEvent(['+352621123456'])),
+    { name: 'ValidationError' }
+  );
+});
+
+test('beforeCreate skips validation when contactChannels is absent', async () => {
+  await assert.doesNotReject(() => hooks.beforeCreate(makeEvent(undefined)));
+});
+
+test('beforeUpdate rejects explicit null (cannot null-out required field)', async () => {
+  await assert.rejects(
+    () => hooks.beforeUpdate(makeEvent(null)),
+    { name: 'ValidationError' }
+  );
+});
+
+test('beforeUpdate accepts valid contact channels', async () => {
+  await assert.doesNotReject(() => hooks.beforeUpdate(makeEvent([
+    { number: '+33612345678', channels: ['whatsapp', 'viber'] },
+  ])));
+});
+
+test('beforeUpdate rejects invalid phone number', async () => {
+  await assert.rejects(
+    () => hooks.beforeUpdate(makeEvent([{ number: 'notaphone', channels: ['phone'] }])),
+    { name: 'ValidationError' }
+  );
+});
+
+// --- DB-backed channel validation (mocked strapi global) --------------------
+
+test('beforeCreate rejects slug absent from DB', async () => {
+  global.strapi = {
+    documents: () => ({
+      findMany: async () => [{ slug: 'whatsapp' }, { slug: 'phone' }],
+    }),
+  };
+  try {
+    await assert.rejects(
+      () => hooks.beforeCreate(makeEvent([{ number: '+352621123456', channels: ['viber'] }])),
+      { name: 'ValidationError' }
+    );
+  } finally {
+    delete global.strapi;
+  }
+});
+
+test('beforeCreate accepts slug present in DB', async () => {
+  global.strapi = {
+    documents: () => ({
+      findMany: async () => [{ slug: 'signal' }, { slug: 'phone' }],
+    }),
+  };
+  try {
+    await assert.doesNotReject(
+      () => hooks.beforeCreate(makeEvent([{ number: '+352621123456', channels: ['signal'] }]))
+    );
+  } finally {
+    delete global.strapi;
+  }
 });

@@ -13,7 +13,7 @@ test('transporter is a collection type with operator profile fields', (t) => {
   t.assert.strictEqual(schema.options.draftAndPublish, false);
 
   assertAttribute(t, schema, 'name', { type: 'string', required: true });
-  assertAttribute(t, schema, 'phoneNumbers', { type: 'json', required: true });
+  assertAttribute(t, schema, 'contactChannels', { type: 'json', required: true });
   assertAttribute(t, schema, 'notes', { type: 'text' });
   assertAttribute(t, schema, 'submittedBy', { type: 'string' });
   assertAttribute(t, schema, 'claimedBy', { type: 'string' });
