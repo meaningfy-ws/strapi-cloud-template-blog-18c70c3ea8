@@ -4,6 +4,10 @@ const fs = require('fs-extra');
 const path = require('path');
 const mime = require('mime-types');
 const { categories, authors, articles, global, about } = require('../data/data.json');
+const {
+  WAITLIST_SERVER_ACTIONS,
+  missingActions,
+} = require('./api/waitlist-submission/permissions');
 
 async function seedExampleApp() {
   const shouldImportSeedData = await isFirstRun();
@@ -269,6 +273,44 @@ async function main() {
 }
 
 
+/**
+ * Idempotently grant the Authenticated users-permissions role find + create
+ * on waitlist-submission (frontend PR #16 soft-dedupe pre-check).
+ *
+ * This codifies the perms for any frontend caller authenticating as the
+ * Authenticated role. NOTE: a Bearer *API token* (Strapi's separate
+ * api-token mechanism) is configured in Admin → Settings → API Tokens and
+ * must be granted there too — see the deploy runbook. `find` is deliberately
+ * NEVER granted to the public role (PII: emails, locations).
+ *
+ * Defensive by design: any failure is logged, never thrown, so a permission
+ * hiccup can never block application boot.
+ */
+async function ensureWaitlistServerPermissions() {
+  try {
+    const role = await strapi
+      .query('plugin::users-permissions.role')
+      .findOne({ where: { type: 'authenticated' } });
+    if (!role) return;
+
+    const existing = await strapi
+      .query('plugin::users-permissions.permission')
+      .findMany({ where: { role: role.id } });
+    const existingActions = existing.map((p) => p.action);
+
+    for (const actionId of missingActions(existingActions, WAITLIST_SERVER_ACTIONS)) {
+      await strapi
+        .query('plugin::users-permissions.permission')
+        .create({ data: { action: actionId, role: role.id } });
+    }
+  } catch (err) {
+    strapi.log.error(
+      `ensureWaitlistServerPermissions failed (non-fatal): ${err.message}`
+    );
+  }
+}
+
 module.exports = async () => {
   await seedExampleApp();
+  await ensureWaitlistServerPermissions();
 };

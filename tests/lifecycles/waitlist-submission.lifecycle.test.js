@@ -145,7 +145,9 @@ describe('Feature: waitlist-submission lifecycle (beforeCreate)', () => {
     });
   });
 
-  describe('Scenario: gdprConsentAt freshness', () => {
+  describe('Scenario: gdprConsentAt freshness (24h window, tolerates clock skew / long-open forms)', () => {
+    const HOUR = 60 * 60 * 1000;
+
     it('Given gdprConsentAt is missing, Then beforeCreate rejects it', () => {
       const p = validPayload();
       delete p.gdprConsentAt;
@@ -157,14 +159,26 @@ describe('Feature: waitlist-submission lifecycle (beforeCreate)', () => {
         { name: 'ValidationError' });
     });
 
-    it('Given gdprConsentAt is in the future, Then beforeCreate rejects it', () => {
+    it('Given gdprConsentAt is in the future, Then beforeCreate rejects it (future-guard kept)', () => {
       assert.throws(() => hooks.beforeCreate(event(validPayload({ gdprConsentAt: nowIso(60_000) }))),
         { name: 'ValidationError' });
     });
 
-    it('Given gdprConsentAt is older than 1 hour, Then beforeCreate rejects it', () => {
+    it('Given gdprConsentAt is 2 hours back, Then beforeCreate accepts it (was the intermittent-400 cause)', () => {
+      assert.doesNotThrow(
+        () => hooks.beforeCreate(event(validPayload({ gdprConsentAt: nowIso(-2 * HOUR) })))
+      );
+    });
+
+    it('Given gdprConsentAt is 23 hours back, Then beforeCreate accepts it (inside 24h window)', () => {
+      assert.doesNotThrow(
+        () => hooks.beforeCreate(event(validPayload({ gdprConsentAt: nowIso(-23 * HOUR) })))
+      );
+    });
+
+    it('Given gdprConsentAt is older than 24 hours, Then beforeCreate rejects it', () => {
       assert.throws(
-        () => hooks.beforeCreate(event(validPayload({ gdprConsentAt: nowIso(-2 * 60 * 60 * 1000) }))),
+        () => hooks.beforeCreate(event(validPayload({ gdprConsentAt: nowIso(-25 * HOUR) }))),
         { name: 'ValidationError' }
       );
     });
