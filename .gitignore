@@ -122,6 +122,12 @@ coverage
 ############################
 
 .env
+.env.cloud*
+
+# Stray local artifacts (accidental, never commit)
+/node
+my-app-name@*
+
 license.txt
 exports
 .strapi
