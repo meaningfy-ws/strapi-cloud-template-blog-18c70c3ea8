@@ -38,10 +38,14 @@ Therefore, before merging/deploying frontend PR #16 or FE-3:
 - [ ] **4. Publish content** with the `seo` component filled
       (real `metaTitle` without the brand suffix, `metaDescription`,
       `shareImage`):
-  - [ ] `landing-page`
-  - [ ] `page-confidentialitate`, `page-termeni`,
-        `page-despre-proiect`, `page-pentru-transportatori`
-        (each: `title`, `body` as blocks, `lastUpdated`, `seo`)
+  - [ ] `landing-page` — `npm run seed:landing-page`
+  - [ ] The 4 editorial pages — `npm run seed:editorial-pages`
+        (idempotent; upserts + publishes `page-confidentialitate`,
+        `page-termeni`, `page-despre-proiect`,
+        `page-pentru-transportatori` in the `ro` locale from
+        `data/editorial-pages.json` + `data/editorial/*.md`, markdown
+        converted to Blocks). `shareImage` is optional and can be set
+        per page in the admin afterward.
 
 ## Out of scope here (tracked separately)
 
