@@ -1,7 +1,14 @@
+This si the Strapi backend repository for the Hulubul.com project.
+
+Operate on best practices around Strapi backend development, and refer to the Strapi documentation for any specific questions about how to implement features or troubleshoot issues.
+
+
+Never implement anything in the frontend repo — if you find yourself needing to change something in the frontend, stop and ask for help. We want to keep a clean separation between backend and frontend code, and I can help you figure out how to implement your feature or fix your bug within the Strapi backend without touching the frontend. Always write specs for fronend specs, when you need them done.
+
 <!-- gitnexus:start -->
 # GitNexus — Code Intelligence
 
-This project is indexed by GitNexus as **strapi-cloud-template-blog-18c70c3ea8** (413 symbols, 678 relationships, 18 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
+This project is indexed by GitNexus as **strapi-cloud-template-blog-18c70c3ea8** (495 symbols, 806 relationships, 19 execution flows). Use the GitNexus MCP tools to understand code, assess impact, and navigate safely.
 
 > If any GitNexus tool warns the index is stale, run `npx gitnexus analyze` in terminal first.
 
