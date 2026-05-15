@@ -1,0 +1,46 @@
+[
+  {
+    "contentType": "page-confidentialitate",
+    "uid": "api::page-confidentialitate.page-confidentialitate",
+    "title": "Politica de confidențialitate",
+    "lastUpdated": "2026-04-23",
+    "bodyFile": "data/editorial/confidentialitate.md",
+    "seo": {
+      "metaTitle": "Politica de confidențialitate",
+      "metaDescription": "Ce date colectăm, de ce, și cum le poți gestiona pe hulubul.com."
+    }
+  },
+  {
+    "contentType": "page-termeni",
+    "uid": "api::page-termeni.page-termeni",
+    "title": "Termeni și condiții",
+    "lastUpdated": "2026-05-14",
+    "bodyFile": "data/editorial/termeni.md",
+    "seo": {
+      "metaTitle": "Termeni și condiții",
+      "metaDescription": "Termenii de utilizare ai platformei hulubul.com — proiect inițial, supus revizuirii."
+    }
+  },
+  {
+    "contentType": "page-despre-proiect",
+    "uid": "api::page-despre-proiect.page-despre-proiect",
+    "title": "Despre proiect",
+    "lastUpdated": "2026-05-14",
+    "bodyFile": "data/editorial/despre-proiect.md",
+    "seo": {
+      "metaTitle": "Despre proiect",
+      "metaDescription": "Despre hulubul.com — de ce construim platforma și cum o gândim împreună cu diaspora moldovenească."
+    }
+  },
+  {
+    "contentType": "page-pentru-transportatori",
+    "uid": "api::page-pentru-transportatori.page-pentru-transportatori",
+    "title": "Pentru transportatori",
+    "lastUpdated": "2026-05-14",
+    "bodyFile": "data/editorial/pentru-transportatori.md",
+    "seo": {
+      "metaTitle": "Pentru transportatori",
+      "metaDescription": "Cum te ajută hulubul.com să găsești clienți noi, să-ți organizezi comunicarea și să-ți construiești o reputație clară pe rutele Moldova–Europa."
+    }
+  }
+]

@@ -9,6 +9,7 @@
     "develop": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "seed:landing-page": "node ./scripts/seed-landing-page.js",
+    "seed:editorial-pages": "node ./scripts/seed-editorial-pages.js",
     "seed:transport-types": "node ./scripts/seed-transport-types.js",
     "backfill:waitlist-consent": "node ./scripts/backfill-waitlist-consent.js",
     "start": "strapi start",
