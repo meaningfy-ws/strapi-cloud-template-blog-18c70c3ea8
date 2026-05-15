@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_pentru_transportatori",
+  "info": {
+    "singularName": "page-pentru-transportatori",
+    "pluralName": "page-pentru-transportatoris",
+    "displayName": "Pentru transportatori",
+    "description": "Editorial page backing the frontend EditorialPage (replaces the static build-time fallback)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "body": {
+      "type": "blocks",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "lastUpdated": {
+      "type": "date",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo",
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
+    }
+  }
+}

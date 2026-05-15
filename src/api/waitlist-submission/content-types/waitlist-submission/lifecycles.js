@@ -9,7 +9,10 @@ const MAX_NAME = 200;
 const MAX_CITY = 120;
 const MAX_CITIES = 10;
 const MAX_CONSENT_VERSION = 64;
-const CONSENT_BACKDATE_MS = 60 * 60 * 1000;
+// 24h window: tolerates client/server clock skew and forms left open a long
+// time before submit. Was 1h, which caused intermittent 400s on valid payloads.
+// The not-in-the-future guard below is intentionally kept.
+const CONSENT_BACKDATE_MS = 24 * 60 * 60 * 1000;
 
 function validateWhatsapp(whatsapp) {
   if (whatsapp && !PHONE_RE.test(whatsapp.trim())) {
