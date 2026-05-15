@@ -32,6 +32,20 @@ for (const apiName of LOCALIZED_TYPES) {
   });
 }
 
+test('every localizable content type marks ALL its attributes per-field localized', (t) => {
+  for (const apiName of LOCALIZED_TYPES) {
+    const schema = loadContentType(apiName);
+    for (const [attr, def] of Object.entries(schema.attributes)) {
+      const i18n = def.pluginOptions && def.pluginOptions.i18n;
+      t.assert.strictEqual(
+        i18n && i18n.localized,
+        true,
+        `${apiName}.${attr}: must set pluginOptions.i18n.localized=true so the field is translatable`
+      );
+    }
+  }
+});
+
 test('waitlist-submission is NOT localized (operational data, single locale)', (t) => {
   const schema = loadContentType('waitlist-submission');
   const i18n = schema.pluginOptions && schema.pluginOptions.i18n;

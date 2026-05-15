@@ -20,61 +20,71 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.seo",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "nav": {
       "type": "component",
       "repeatable": false,
       "component": "landing.nav",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "hero": {
       "type": "component",
       "repeatable": false,
       "component": "landing.hero",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "problem": {
       "type": "component",
       "repeatable": false,
       "component": "landing.section-problem",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "howItWorks": {
       "type": "component",
       "repeatable": false,
       "component": "landing.section-how",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "audience": {
       "type": "component",
       "repeatable": false,
       "component": "landing.section-audience",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "trust": {
       "type": "component",
       "repeatable": false,
       "component": "landing.section-trust",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "signup": {
       "type": "component",
       "repeatable": false,
       "component": "landing.section-signup",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "faq": {
       "type": "component",
       "repeatable": false,
       "component": "landing.section-faq",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     },
     "footer": {
       "type": "component",
       "repeatable": false,
       "component": "landing.footer",
-      "required": true
+      "required": true,
+      "pluginOptions": { "i18n": { "localized": true } }
     }
   }
 }

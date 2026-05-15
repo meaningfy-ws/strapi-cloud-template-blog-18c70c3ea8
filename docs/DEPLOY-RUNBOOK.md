@@ -47,12 +47,42 @@ Therefore, before merging/deploying frontend PR #16 or FE-3:
         converted to Blocks). `shareImage` is optional and can be set
         per page in the admin afterward.
 
+## Translations (i18n) — author now, display later
+
+The schema is fully translation-ready: `landing-page` and the 4 `page-*`
+types are `i18n.localized: true` at the content-type level **and on every
+attribute** (per-field). No further schema/code change is needed to author
+translations.
+
+Two setup steps remain — by Strapi's design these are environment/admin
+actions, not repo code:
+
+- [ ] **A. Pin the default locale to `ro`.** Set the documented env var on
+      the instance:
+      `STRAPI_PLUGIN_I18N_INIT_LOCALE_CODE=ro`
+      (Strapi's built-in default is `en`; the frontend sends no `locale`
+      param yet, so the default MUST be `ro` or the live site flips to an
+      empty `en`.) Effective when locales initialize; verify in
+      Settings → Internationalization that `ro` shows as **Default**.
+- [ ] **B. Add the `en` locale (one click).** Admin → Settings →
+      Internationalization → **Add new locale** → `en` → do **NOT** tick
+      "Set as default" → Save. Strapi exposes no stable programmatic API
+      for this (it's an admin-panel action by design), so it is not
+      codified — intentionally, to avoid risky boot logic.
+
+After A + B you can author `en` translations per entry in the Content
+Manager immediately. They will **not appear on hulubul.com** until the
+frontend i18n epic (locale routing + `?locale=` in `getLandingPage` /
+`getEditorialPage` + fallback) — that is the "display later" half and is
+frontend work, tracked in the FE spec.
+
+> Re-seeding (`npm run seed:landing-page`, `seed:editorial-pages`) only
+> writes the `ro` (default) locale, so it never overwrites translations.
+
 ## Out of scope here (tracked separately)
 
 - CORS allowlist for `https://hulubul.com` on client-side read endpoints
   (`config/middlewares.js`).
-- Adding extra i18n locales (schema is `localized:true`, default locale
-  only — locales are added in the Strapi UI when needed, no code change).
 
 ## Notes on intentional spec deviations (no backend action)
 
