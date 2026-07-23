@@ -1,0 +1,95 @@
+{
+  "kind": "collectionType",
+  "collectionName": "survey_sender_v2s",
+  "info": {
+    "singularName": "survey-sender-v2",
+    "pluralName": "survey-sender-v2s",
+    "displayName": "Survey — Sender v2",
+    "description": "Shorter, sharper sender questionnaire (v2). Sibling of survey-sender, not a migration — additive, separate dataset."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "routeCities": {
+      "type": "json",
+      "required": true
+    },
+    "sendingFrequency": {
+      "type": "enumeration",
+      "enum": ["niciodata", "rar", "cateva_ori_pe_an", "la_2_3_luni", "lunar_sau_mai_des"],
+      "required": true
+    },
+    "howFindTransporter": {
+      "type": "json",
+      "required": true
+    },
+    "howFindTransporterOther": {
+      "type": "text",
+      "required": false
+    },
+    "searchDuration": {
+      "type": "string",
+      "required": true
+    },
+    "difficulties": {
+      "type": "json",
+      "required": true
+    },
+    "difficultiesOther": {
+      "type": "text",
+      "required": false
+    },
+    "decisionCriteria": {
+      "type": "json",
+      "required": true
+    },
+    "decisionCriteriaOther": {
+      "type": "text",
+      "required": false
+    },
+    "trustSignals": {
+      "type": "json",
+      "required": true
+    },
+    "trustSignalsOther": {
+      "type": "text",
+      "required": false
+    },
+    "switchReasons": {
+      "type": "json",
+      "required": true
+    },
+    "switchReasonsOther": {
+      "type": "text",
+      "required": false
+    },
+    "mostImportantThing": {
+      "type": "text",
+      "required": true
+    },
+    "wantsToTest": {
+      "type": "enumeration",
+      "enum": ["da", "posibil", "nu"],
+      "required": true
+    },
+    "testPhone": {
+      "type": "string",
+      "required": false
+    },
+    "testConsent": {
+      "type": "boolean",
+      "required": false
+    }
+  }
+}

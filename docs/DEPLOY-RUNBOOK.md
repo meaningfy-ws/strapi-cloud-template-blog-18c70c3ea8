@@ -29,6 +29,28 @@ Therefore, before merging/deploying frontend PR #16 or FE-3:
 > Deploy order is a hard constraint: **backend perms live → then merge/deploy
 > the frontend.** Out of order = every submission AUTH_MISCONFIG-fails.
 
+## ⛔ Hard prerequisite (blocks the v2 sender survey / `/sondaj/expeditori`)
+
+`survey-sender-v2` (openspec change `survey-sender-v2-backend`) ships with
+**no permissions on any role** — not public, not Authenticated. Writes go
+through the same Bearer API token already used for `survey-sender` and
+`waitlist-submission`; nothing here is bootstrap-automatable (Strapi API
+tokens aren't content-store rows).
+
+- [ ] **1. Grant the frontend API token `create` on `survey-sender-v2`.**
+      Admin → Settings → API Tokens → (the token used by the frontend) →
+      add **`survey-sender-v2`: `create`**. No `find` needed — the frontend
+      only submits, it never reads this collection back.
+- [ ] **2. Keep public/unauthenticated access on `survey-sender-v2`
+      DISABLED entirely.** No role should have any permission on this
+      collection except the API token's `create`.
+
+> Deploy order is a hard constraint: **grant the token perms → then deploy
+> the frontend swap that points `/sondaj/expeditori` at v2.** Out of order =
+> every v2 submission 403s (same failure class as the waitlist token gap
+> above, and the same 502 the frontend hand-off spec already documented for
+> the missing collection).
+
 ## Migrations & content
 
 - [ ] **3. Run migrations / restart** so
