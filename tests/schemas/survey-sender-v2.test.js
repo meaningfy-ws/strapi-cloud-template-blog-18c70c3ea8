@@ -201,4 +201,14 @@ describe('survey-sender-v2 schema', () => {
       t.assert.strictEqual(schema.attributes.consentRecord, undefined);
     });
   });
+
+  describe('Scenario: optional approximate location capture', () => {
+    it('Given the schema, Then location is an optional JSON field', (t) => {
+      assertAttribute(t, schema, 'location', { type: 'json', required: false });
+    });
+
+    it('And there is no locationConsent attribute (silent capture, no consent UI)', (t) => {
+      t.assert.strictEqual(schema.attributes.locationConsent, undefined);
+    });
+  });
 });
