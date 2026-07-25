@@ -90,6 +90,10 @@
     "testConsent": {
       "type": "boolean",
       "required": false
+    },
+    "location": {
+      "type": "json",
+      "required": false
     }
   }
 }
